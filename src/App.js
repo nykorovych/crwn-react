@@ -9,7 +9,7 @@ import "./App.css";
 import {
   auth,
   createUserProfileDocument,
-  addCollectionAndDocuments,
+  
 } from "./firebase/firebase.utils";
 import HomePage from "./pages/homepage/homepage.component";
 import ShopPage from "./pages/shop/shop.component";
@@ -24,8 +24,8 @@ class App extends React.Component {
   unsubscribeFromAuth = null;
 
   componentDidMount() {
-    const { setCurrentUser, collectionsArray } = this.props;
-    console.log(collectionsArray)
+    const { setCurrentUser } = this.props;
+    // console.log(collectionsArray)
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
